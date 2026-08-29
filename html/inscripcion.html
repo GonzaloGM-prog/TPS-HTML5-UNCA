@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inscripción a actividad deportiva</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+</head>
+
+<body class="pagina-inscripcion"></body>
+
+    <header class="container encabezado">
+        <h1 class="text-center">
+            Inscripción a actividad deportiva
+        </h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"></i> Inicio</a></li>
+            <li><a href="index.html">Registrarse</a></li>
+            <li><a href="inscripcion.html">Inscribirse a una actividad</a></li>
+            <li><a href="inscripciones.html">Mis inscripciones</a></li>
+            <li><a href="inscripciones.html">Cancelar inscripción</a></li>
+        </ul>
+    </nav>
+
+
+    <form action="pagina3.html" method="post" class="container formulario">
+
+        <h2 class="text-center">Información de la actividad</h2>
+
+        <div class="form-group">
+
+            <label for="actividad">Actividad:</label>
+            <input type="text" id="actividad" value="Futbol" disabled>
+            <br>
+
+            <label for="lugar">Lugar:</label>
+            <input type="text" id="lugar" value="Cancha techada" disabled>
+            <br>
+
+            <label for="dias">Días:</label>
+            <input type="text" id="dias" value="Martes y Jueves" disabled>
+            <br>
+
+            <label for="horario">Horario:</label>
+            <input type="text" id="horario" value="18:00 a 19:30" disabled>
+            <br>
+
+        </div>
+
+
+        <h2 class="text-center">Datos del participante</h2>
+
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" maxlength="100" required>
+        <br>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" pattern="[0-9]{8}" required>
+        <br>
+
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono">
+        <br>
+
+
+        <label>Sexo:</label>
+
+        <input type="radio" id="masculino" name="sexo" value="Masculino">
+        <label for="masculino">Masculino</label>
+
+        <input type="radio" id="femenino" name="sexo" value="Femenino">
+        <label for="femenino">Femenino</label>
+
+        <input type="radio" id="no-binario" name="sexo" value="No binario">
+        <label for="no-binario">No binario</label>
+
+        <br>
+
+
+        <h2 class="text-center">Información deportiva</h2>
+
+        <label for="nivel">Nivel:</label>
+
+        <select id="nivel">
+            <option value="inicial">Inicial</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+        </select>
+
+        <br>
+
+        <p class="text-center py-3 my-3">
+            ¿Posee experiencia previa?
+        </p>
+
+        <input type="radio" id="experiencia-si" name="experiencia" value="Si">
+        <label for="experiencia-si">Sí</label>
+
+        <input type="radio" id="experiencia-no" name="experiencia" value="No">
+        <label for="experiencia-no">No</label>
+
+        <br>
+
+        <label for="observaciones">Observaciones:</label>
+        <br>
+
+        <textarea
+            class="form-control"
+            id="observaciones"
+            cols="30"
+            rows="10"
+            placeholder="Escribe aquí información adicional">
+        </textarea>
+
+        <br>
+
+
+        <article>
+            <h2>Aceptación de condiciones</h2>
+        </article>
+
+        <input
+            type="checkbox"
+            id="condiciones"
+            name="condiciones"
+            value="Si"
+            required>
+
+        <label for="condiciones">
+            Acepto las condiciones de inscripción
+        </label>
+
+        <br><br>
+
+
+        <button type="submit" class="btn btn-success">
+            Aceptar
+        </button>
+
+        <button type="reset" class="btn btn-danger">
+            Cancelar
+        </button>
+
+    </form>
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">Deportes UNCA – 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrVlecXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+</body>
+</html>

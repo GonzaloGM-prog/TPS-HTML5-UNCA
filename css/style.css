@@ -1,0 +1,227 @@
+
+/*selector universal*/
+/*{
+    margin: 0;
+    padding: 0;
+    
+}
+/*selector de etiquetas*/
+/*h1{
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    
+}
+/*selector de clase*/
+/*.boton{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+/*selector de id*/
+/*#contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+/*selector de atributo*/
+/*[href="#"]{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+/*selector de pseudo-elemento*/
+/*h2::before{
+    content: "Deportes Unca";
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+/*selector decendante*/
+/*nav ul li a:hover{ /* hover solo cuando el mouse este por encima */
+    /*color: rgb(214, 22, 157);
+    text-decoration: none; 
+}
+a{
+    color: rgb(143, 8, 8);
+} 
+*/
+
+
+/*AQUI RECIEN EMPIEZA EL TP, LO ANTERIOR LO HICE DE PRACTICA*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo propio para el encabezado */
+.encabezado{
+    background-color: rgb(18, 24, 38);
+    color: rgb(240, 244, 248);
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+nav ul li a:hover{
+    color: rgb(91, 192, 235);
+    text-decoration: none;
+}
+
+
+section h2{
+    text-align: center;
+    color: rgb(65, 105, 225);
+}
+
+
+.card-body h3{
+    text-align: center;
+    background-color: rgba(18, 24, 38, 0.178);
+}
+
+
+[href="#"]{
+    text-decoration: none;
+    color: rgb(91, 192, 235);
+}
+
+
+[href="#"]:hover{
+    color: rgb(168, 85, 247);
+    text-decoration: none;
+}
+
+
+[href="#"]:focus{
+    color: rgb(99, 102, 241);
+    text-decoration: none;
+}
+
+
+[target="_blank"]{
+    text-decoration: none;
+    color: rgb(45, 212, 191);
+}
+
+
+/*-----------------*/
+
+.form-group{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(37, 55, 85);
+    color: rgb(240, 244, 248);
+}
+
+
+#nivel{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(45, 65, 95);
+    color: rgb(240, 244, 248);
+}
+
+
+article{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(45, 65, 95);
+    color: rgb(240, 244, 248);
+}
+nav {
+    background-color: rgb(75, 76, 78);
+    padding: 10px;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 10;
+}
+nav ul li{
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(240, 244, 248);
+}
+.pagina-inicio {
+    background-image: url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.pagina-inscripcion {
+    background-image: url("../img/futball.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.formulario {
+    background-color: rgba(18, 24, 38, 0.90);
+    color: rgb(240, 244, 248);
+    padding: 25px;
+    border-radius: 10px;
+}
+.bi-calendar-check {
+    color: rgb(91, 192, 235);
+    margin-right: 8px;
+}
+/* RESPONSIVO */
+
+@media (max-width: 767px) {
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+
+    nav ul li{
+        width: 100%;
+        text-align: center;
+    }
+
+
+    article{
+        width: 100%;
+    }
+
+
+    input,
+    select,
+    textarea{
+        max-width: 100%;
+    }
+
+
+    table{
+        width: 100%;
+    }
+
+}
