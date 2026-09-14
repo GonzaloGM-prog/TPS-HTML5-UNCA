@@ -1,0 +1,204 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción - Deportes UNCA</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Deportes UNCA</h1>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="inscripcion.html">Inscripción</a>
+            <a href="inscripciones.html">Inscripciones</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Formulario de Inscripción</h2>
+
+        <form id="formularioInscripcion">
+
+            
+
+            <fieldset>
+                <legend>Datos personales</legend>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+
+                
+
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+
+                
+
+                <label for="fechaNacimiento">
+                    Fecha de nacimiento:
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaNacimiento"
+                    name="fechaNacimiento"
+                >
+            </fieldset>
+
+
+            
+
+            <fieldset>
+                <legend>Datos de la actividad</legend>
+
+                <label for="deporte">Deporte:</label>
+
+                <select id="deporte" name="deporte">
+                    <option value="">Seleccione un deporte</option>
+                    <option value="futbol">Fútbol</option>
+                    <option value="basquet">Básquet</option>
+                    <option value="voley">Vóley</option>
+                    <option value="atletismo">Atletismo</option>
+                </select>
+
+
+                <p>Turno:</p>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="turno"
+                        value="mañana"
+                    >
+                    Mañana
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="turno"
+                        value="tarde"
+                    >
+                    Tarde
+                </label>
+
+
+                <p>Experiencia:</p>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="experiencia"
+                        value="si"
+                    >
+                    Sí
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="experiencia"
+                        value="no"
+                    >
+                    No
+                </label>
+
+
+                <label for="comentarios">
+                    Comentarios:
+                </label>
+
+                <textarea
+                    id="comentarios"
+                    name="comentarios"
+                    rows="4"
+                ></textarea>
+
+            </fieldset>
+
+
+            
+
+            <fieldset>
+                <legend>Participantes</legend>
+
+                <label for="cantidadParticipantes">
+                    Cantidad de participantes:
+                </label>
+
+                <input
+                    type="number"
+                    id="cantidadParticipantes"
+                    min="1"
+                    max="10"
+                >
+
+                <button
+                    type="button"
+                    id="generarParticipantes"
+                >
+                    Generar participantes
+                </button>
+
+                
+
+                <div id="contenedorParticipantes"></div>
+
+            </fieldset>
+
+
+            
+
+            <fieldset>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="terminos"
+                        name="terminos"
+                    >
+
+                    Acepto los términos y condiciones
+                </label>
+
+            </fieldset>
+
+
+            <button type="submit">
+                Inscribirse
+            </button>
+
+        </form>
+
+    </main>
+
+
+    <footer>
+        <p>Deportes UNCA - Universidad Nacional de Catamarca</p>
+    </footer>
+
+
+
+
+    <script src="../javaScript/tabla.js"></script>
+    <script src="../javaScript/valicaciones.js"></script>
+
+</body>
+</html>

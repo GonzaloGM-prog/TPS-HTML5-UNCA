@@ -1,0 +1,483 @@
+
+/*selector universal*/
+/*{
+    margin: 0;
+    padding: 0;
+    
+}
+/*selector de etiquetas*/
+/*h1{
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    
+}
+/*selector de clase*/
+/*.boton{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+/*selector de id*/
+/*#contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+/*selector de atributo*/
+/*[href="#"]{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+/*selector de pseudo-elemento*/
+/*h2::before{
+    content: "Deportes Unca";
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+/*selector decendante*/
+/*nav ul li a:hover{ /* hover solo cuando el mouse este por encima */
+    /*color: rgb(214, 22, 157);
+    text-decoration: none; 
+}
+a{
+    color: rgb(143, 8, 8);
+} 
+*/
+
+
+/*AQUI RECIEN EMPIEZA EL TP, LO ANTERIOR LO HICE DE PRACTICA*/
+:root {
+    --azul-oscuro: #0b1f33;
+    --azul: #123f63;
+    --celeste: #2da9df;
+    --celeste-claro: #eaf7fc;
+    --blanco: #ffffff;
+    --gris: #5f6b76;
+    --gris-claro: #f4f7f9;
+    --borde: #d7e1e8;
+    --verde: #198754;
+    --rojo: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--azul-oscuro);
+    background-color: var(--gris-claro);
+}
+
+main {
+    flex: 1;
+}
+
+/* EL HEADER */
+
+header {
+    background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+    color: var(--blanco);
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 4px solid var(--celeste);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 2.4rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #dceef7;
+}
+
+/* EL NAV */
+
+nav {
+    background-color: var(--azul-oscuro);
+    border-bottom: 1px solid #244c68;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 10px 18px;
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--celeste);
+    color: var(--blanco);
+}
+
+/* FONDO DE LA PAGINA PRINCIPAL */
+
+.pagina-inicio {
+    background-image:
+        linear-gradient(rgba(11, 31, 51, 0.78), rgba(11, 31, 51, 0.78)),
+        url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ESTO SERIA LA PARTE PRINCIPAL DE LA PAGINA */
+
+.actividades {
+    width: min(1100px, 92%);
+    margin: 45px auto;
+    padding: 35px;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(11, 31, 51, 0.18);
+}
+
+.actividades h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--azul);
+    font-size: 2rem;
+}
+
+.actividades > p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: var(--gris);
+    line-height: 1.6;
+}
+
+/* TARJETAS DE DEPORTES */
+
+.lista-deportes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.tarjeta-deporte {
+    padding: 25px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(11, 31, 51, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-deporte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(11, 31, 51, 0.15);
+}
+
+.tarjeta-deporte h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--azul);
+    font-size: 1.4rem;
+}
+
+.tarjeta-deporte p {
+    color: var(--gris);
+    line-height: 1.6;
+}
+
+.boton-deporte {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 11px 18px;
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-deporte:hover {
+    background-color: var(--celeste);
+}
+
+/* FORMULARIO DONDE HAGO LA INSCRIPCION */
+
+.pagina-inscripcion {
+    background-image:
+        linear-gradient(rgba(11, 31, 51, 0.82), rgba(11, 31, 51, 0.82)),
+        url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.formulario-contenedor {
+    width: min(900px, 92%);
+    margin: 40px auto;
+    padding: 35px;
+    background-color: rgba(255, 255, 255, 0.97);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(11, 31, 51, 0.2);
+}
+
+.formulario-contenedor h2 {
+    margin-top: 0;
+    color: var(--azul);
+}
+
+.formulario-contenedor p {
+    color: var(--gris);
+    line-height: 1.6;
+}
+
+fieldset {
+    margin: 25px 0;
+    padding: 22px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background-color: var(--gris-claro);
+}
+
+legend {
+    padding: 0 8px;
+    color: var(--azul);
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #bdcbd5;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--blanco);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--celeste);
+    border-color: var(--celeste);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.opciones label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.opciones input {
+    width: auto;
+    margin: 0;
+}
+
+.condiciones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.condiciones input {
+    width: auto;
+    margin: 0;
+}
+
+.condiciones label {
+    margin: 0;
+    font-weight: normal;
+}
+
+.botones-formulario {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.botones-formulario button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-enviar {
+    background-color: var(--verde);
+    color: var(--blanco);
+}
+
+.btn-enviar:hover {
+    background-color: #146c43;
+}
+
+.btn-cancelar {
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
+.btn-cancelar:hover {
+    background-color: #962d22;
+}
+
+/* ESTO ES LA TABLA */
+
+.tabla-contenedor {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--blanco);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(11, 31, 51, 0.12);
+    overflow-x: auto;
+}
+
+.tabla-contenedor h2 {
+    margin-top: 0;
+    color: var(--azul);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: var(--azul);
+    color: var(--blanco);
+    padding: 13px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+tr:nth-child(even) {
+    background-color: var(--gris-claro);
+}
+
+tr:hover {
+    background-color: var(--celeste-claro);
+}
+
+/* ACA PONGO EL FOOTER */
+
+footer {
+    margin-top: auto;
+    padding: 22px;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .actividades,
+    .formulario-contenedor,
+    .tabla-contenedor {
+        width: 94%;
+        margin: 25px auto;
+        padding: 22px;
+    }
+
+    .lista-deportes {
+        grid-template-columns: 1fr;
+    }
+
+    .opciones {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+
+    .botones-formulario button {
+        width: 100%;
+    }
+}
