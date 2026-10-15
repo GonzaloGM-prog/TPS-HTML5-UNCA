@@ -1,0 +1,129 @@
+TRABAJO PRACTICO N° VI - MODELOS EN DJANGO
+Cátedra: Programación III | Carrera: Ingeniería en Informática | U.N.Ca.
+Proyecto: deportes | Aplicación: reservas (Deportes Unca)
+Alumno: Gil Miranda Gonzalo
+
+====================================================================
+3. MIGRACIONES
+====================================================================
+
+(venv) > python manage.py makemigrations reservas
+Migrations for 'reservas':
+  reservas/migrations/0001_initial.py
+    + Create model ActividadDeportiva
+    + Create model Horario
+    + Create model Inscripcion
+
+(venv) > python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, reservas, sessions
+Running migrations:
+  Applying reservas.0001_initial... OK
+
+Verificación de las tablas creadas:
+(venv) > python manage.py showmigrations reservas
+reservas
+ [X] 0001_initial
+
+(venv) > python manage.py dbshell
+sqlite> .tables
+(entre ellas) reservas_actividaddeportiva  reservas_horario  reservas_inscripcion
+sqlite> .quit
+
+====================================================================
+4. OPERACIONES BASICAS CON EL ORM
+====================================================================
+
+(venv) > python manage.py shell
+
+--------------------------------------------------------------------
+1. Crear y guardar al menos tres actividades deportivas
+--------------------------------------------------------------------
+>>> from reservas.models import ActividadDeportiva, Horario, Inscripcion
+>>> from datetime import time
+>>> futbol = ActividadDeportiva.objects.create(nombre='Fútbol', descripcion='Fútbol 5 mixto', lugar='Cancha principal', cupo=20)
+>>> voley = ActividadDeportiva.objects.create(nombre='Vóley', descripcion='Vóley recreativo', lugar='Gimnasio UNCa', cupo=12)
+>>> natacion = ActividadDeportiva.objects.create(nombre='Natación', descripcion='Natación para principiantes', lugar='Pileta universitaria', cupo=15)
+>>> ActividadDeportiva.objects.count()
+3
+
+--------------------------------------------------------------------
+2. Crear y guardar al menos dos horarios para una de las actividades
+--------------------------------------------------------------------
+>>> h1 = Horario.objects.create(actividad=futbol, dia='LUN', hora_inicio=time(18, 0), hora_fin=time(19, 30))
+>>> h2 = Horario.objects.create(actividad=futbol, dia='MIE', hora_inicio=time(19, 0), hora_fin=time(20, 30))
+>>> Horario.objects.count()
+2
+
+--------------------------------------------------------------------
+3. Crear y guardar al menos tres inscripciones
+--------------------------------------------------------------------
+>>> i1 = Inscripcion.objects.create(nombre='Juan', apellido='Pérez', dni='40123456', horario=h1)
+>>> i2 = Inscripcion.objects.create(nombre='María', apellido='Gómez', dni='41234567', horario=h1)
+>>> i3 = Inscripcion.objects.create(nombre='Carlos', apellido='Díaz', dni='42345678', horario=h2)
+>>> Inscripcion.objects.count()
+3
+
+--------------------------------------------------------------------
+4. Consultar y mostrar todas las actividades deportivas
+--------------------------------------------------------------------
+>>> ActividadDeportiva.objects.all()
+<QuerySet [<ActividadDeportiva: Fútbol>, <ActividadDeportiva: Natación>, <ActividadDeportiva: Vóley>]>
+>>> for a in ActividadDeportiva.objects.all():
+...     print(a.nombre, '-', a.lugar, '- cupo:', a.cupo)
+... 
+Fútbol - Cancha principal - cupo: 20
+Natación - Pileta universitaria - cupo: 15
+Vóley - Gimnasio UNCa - cupo: 12
+
+--------------------------------------------------------------------
+5. Horarios de una actividad deportiva determinada
+--------------------------------------------------------------------
+>>> futbol.horarios.all()
+<QuerySet [<Horario: Fútbol - Lunes 18:00-19:30>, <Horario: Fútbol - Miércoles 19:00-20:30>]>
+>>> Horario.objects.filter(actividad__nombre='Fútbol')
+<QuerySet [<Horario: Fútbol - Lunes 18:00-19:30>, <Horario: Fútbol - Miércoles 19:00-20:30>]>
+
+--------------------------------------------------------------------
+6. Inscripciones en estado Activa
+--------------------------------------------------------------------
+>>> Inscripcion.objects.filter(estado='ACTIVA')
+<QuerySet [<Inscripcion: Pérez, Juan (DNI 40123456) - Activa>, <Inscripcion: Gómez, María (DNI 41234567) - Activa>, <Inscripcion: Díaz, Carlos (DNI 42345678) - Activa>]>
+
+--------------------------------------------------------------------
+7. Inscripciones de un horario determinado
+--------------------------------------------------------------------
+>>> h1.inscripciones.all()
+<QuerySet [<Inscripcion: Pérez, Juan (DNI 40123456) - Activa>, <Inscripcion: Gómez, María (DNI 41234567) - Activa>]>
+>>> Inscripcion.objects.filter(horario=h1).count()
+2
+
+--------------------------------------------------------------------
+8. Modificar el cupo de una actividad deportiva
+--------------------------------------------------------------------
+>>> futbol.cupo = 25
+>>> futbol.save()
+>>> ActividadDeportiva.objects.get(nombre='Fútbol').cupo
+25
+
+--------------------------------------------------------------------
+9. Cambiar el estado de una inscripción de Activa a Cancelada
+--------------------------------------------------------------------
+>>> i1.estado = 'CANCELADA'
+>>> i1.save()
+>>> Inscripcion.objects.get(dni='40123456').estado
+'CANCELADA'
+>>> Inscripcion.objects.filter(estado='ACTIVA').count()
+2
+
+--------------------------------------------------------------------
+10. Eliminar una inscripción de la base de datos
+--------------------------------------------------------------------
+>>> i3.delete()
+(1, {'reservas.Inscripcion': 1})
+>>> Inscripcion.objects.count()
+2
+>>> Inscripcion.objects.all()
+<QuerySet [<Inscripcion: Pérez, Juan (DNI 40123456) - Cancelada>, <Inscripcion: Gómez, María (DNI 41234567) - Activa>]>
+
+>>> exit()
