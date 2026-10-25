@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Deportes UNCa{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/actividades.css' %}">
+</head>
+<body>
+    <header class="cabecera">
+        <p class="marca">Deportes UNCa</p>
+        <nav aria-label="Navegación principal">
+            <a href="{% url 'lista_actividades' %}">Actividades</a>
+            <a href="{% url 'agregar_actividad' %}">Nueva actividad</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer class="pie">
+        <p>Facultad de Tecnología y Ciencias Aplicadas – UNCa · Programación III</p>
+    </footer>
+</body>
+</html>
